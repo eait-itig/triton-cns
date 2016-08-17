@@ -1,0 +1,17 @@
+{
+   "uqcloud.net": [
+     {
+       "name": "",
+       "records": [
+         { "A": [ 192.168.0.1 ] }
+       ]
+     },
+     {
+       "name": "foo",
+       "records": [
+          { "CNAME": [ "uqcloud.net" ] },
+          { "TXT": [ "bar" ] }
+        ]
+     }
+   ]
+}

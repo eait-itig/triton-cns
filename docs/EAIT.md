@@ -19,6 +19,17 @@ ownerships are recorded in redis under the key `shortname:<shortname>`.
 TXT records have been modified to have the form `<vm.uuid>@<server.uuid>`
 for use with `sdc-zlogin`.
 
+#### Manually changing short-name ownership
+To manually change who owns a shortname (if one is already taken), you can
+manually modify the `shortname:<zonename>` record in redis and update
+the owner and vms field with the new owner/vm:
+
+```
+redis 127.0.0.1:6379> GET shortname:test
+"{\"type\":\"shortname\",\"owner\":\"47a62fd0-861f-448b-9848-a34c5277d938\",\"vms\":[\"92cff890-7fe0-ef77-f595-bd7085bb6a03\"]}"
+redis 127.0.0.1:6379> SET shortname:test "{\"type\":\"shortname\",\"owner\":\"ba6814e3-1b4a-48ba-a665-2f3bdc71e86d\",\"vms\":[\"050ff9f9-e619-4eda-8f4a-af59ecee0d6d\"]}"
+```
+
 ### Reverse Proxy
 EAIT-CNS adds the ability to specify a reverse proxy for a zone.
 
